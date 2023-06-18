@@ -12,10 +12,11 @@ module.exports = {
 			},
 			colors: {
 				primary: "#14b8a6",
+				secondary: "#f8f8f6",
+				greenLite: "#dee8e0",
 				dark: "#0f172a",
 				ocean: "#FEE2E2",
 				yellow: "#FDE68A",
-				secondary: "#f8f8f6",
 			},
 			screens: {
 				"2xl": "1320px",
