@@ -61,12 +61,61 @@
 		<!-- Header End -->
 
 		<!-- Hero Section Start -->
-		<section id="home" class="mx-3 pt-20">
-			<div class="container rounded-2xl bg-secondary py-6 md:mx-auto">
+		<section id="home" class="mx-3 pt-10 antialiased sm:pt-20">
+			<div class="container rounded-t-xl bg-secondary py-6 md:mx-auto">
 				<div class="relative">
 					<div class="px-10">
 						<div class="relative">
-							<img src="./assets/images/carousel/vd1.jpeg" alt="Villa Delara" class="rounded-2xl" />
+							<div
+								class="relative flex items-start justify-center"
+								x-data="{
+							activeSlide: 1,
+							slides: [
+							{ id: 1, image: './assets/images/carousel/vd1.jpeg' },
+							{ id: 2, image: './assets/images/carousel/vd2.jpeg' },
+							{ id: 3, image: './assets/images/carousel/vd1.jpeg'},
+							{ id: 4, image: './assets/images/carousel/vd2.jpeg'},
+							{ id: 5, image: './assets/images/carousel/vd1.jpeg'},
+							{ id: 6, image: './assets/images/carousel/vd2.jpeg'},
+							],
+							loop() {
+							setInterval(() => { this.activeSlide = this.activeSlide === this.slides.length ? 1 : this.activeSlide + 1 }, 5000)
+							}
+						}"
+								x-init="loop"
+							>
+								<template x-for="slide in slides" :key="slide.id">
+									<div x-show="activeSlide === slide.id">
+										<img alt="" :src="slide.image" class="rounded-xl" class="max-h-screen" />
+									</div>
+								</template>
+								<!-- button arrow -->
+								<div class="absolute inset-0 flex">
+									<div class="flex w-1/2 items-center justify-start">
+										<button class="ml-4 flex h-12 w-12 items-center justify-center rounded-full bg-slate-300 font-bold text-white shadow hover:bg-primary hover:text-black" x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1">
+											<span class="material-symbols-outlined"> arrow_back </span>
+										</button>
+									</div>
+									<div class="flex w-1/2 items-center justify-end">
+										<button class="mr-4 flex h-12 w-12 items-center justify-center rounded-full bg-slate-300 font-bold text-white shadow hover:bg-primary hover:text-black" x-on:click="activeSlide = activeSlide === slides.length  ? 1 : activeSlide + 1">
+											<span class="material-symbols-outlined"> arrow_forward </span>
+										</button>
+									</div>
+								</div>
+								<!-- button indicator -->
+								<div class="absolute flex w-full items-center justify-center px-4">
+									<template x-for="slide in slides" :key="slide.id">
+										<button
+											class="mx-2 mb-0 mt-4 h-2 w-2 flex-1 overflow-hidden rounded-full transition-colors duration-200 ease-out hover:bg-primary hover:shadow-lg"
+											:class="{
+											'bg-primary': activeSlide === slide.id,
+											'bg-slate-300': activeSlide !== slide.id
+										}"
+											x-on:click="activeSlide = slide.id"
+										></button>
+									</template>
+								</div>
+							</div>
 							<span class="absolute bottom-0 left-0 right-0">
 								<div class="grid max-w-xs text-white md:mx-0 md:w-1/2 md:max-w-none">
 									<ul class="mb-4 ml-4 sm:ml-20 md:mb-6 md:text-5xl">
