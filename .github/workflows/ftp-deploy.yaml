@@ -18,10 +18,11 @@ jobs:
           node-version: "18.x"
       - run: npm install
       - run: npm run dev
+      - run: ls -la
+      - run: ls -la web/assets/css
       - name: Upload style.css
         uses: actions/upload-artifact@v2
         with:
-          name: gitversion
           path: web/assets/css/style.css
   web-deploy:
     name: 🎉 FTP Deploy
