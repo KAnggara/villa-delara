@@ -84,19 +84,19 @@
 							<div
 								class="relative flex items-start justify-center"
 								x-data="{
-							activeSlide: 1,
-							slides: [
-							{ id: 1, image: './assets/images/carousel/vd1.jpeg' },
-							{ id: 2, image: './assets/images/carousel/vd2.jpeg' },
-							{ id: 3, image: './assets/images/carousel/vd1.jpeg'},
-							{ id: 4, image: './assets/images/carousel/vd2.jpeg'},
-							{ id: 5, image: './assets/images/carousel/vd1.jpeg'},
-							{ id: 6, image: './assets/images/carousel/vd2.jpeg'},
-							],
-							loop() {
-							setInterval(() => { this.activeSlide = this.activeSlide === this.slides.length ? 1 : this.activeSlide + 1 }, 2500)
-							}
-						}"
+								activeSlide: 1,
+								slides: [
+								{ id: 1, image: './assets/images/carousel/vd1.jpeg' },
+								{ id: 2, image: './assets/images/carousel/vd2.jpeg' },
+								{ id: 3, image: './assets/images/carousel/vd1.jpeg'},
+								{ id: 4, image: './assets/images/carousel/vd2.jpeg'},
+								{ id: 5, image: './assets/images/carousel/vd1.jpeg'},
+								{ id: 6, image: './assets/images/carousel/vd2.jpeg'},
+								],
+								loop() {
+								setInterval(() => { this.activeSlide = this.activeSlide === this.slides.length ? 1 : this.activeSlide + 1 }, 2500)
+								}
+							}"
 								x-init="loop"
 							>
 								<template x-for="slide in slides" :key="slide.id">
@@ -123,9 +123,9 @@
 										<button
 											class="mx-2 mb-0 mt-4 h-2 w-2 flex-1 overflow-hidden rounded-full transition-colors duration-200 ease-out hover:bg-primary hover:shadow-lg"
 											:class="{
-											'bg-primary': activeSlide === slide.id,
-											'bg-slate-300': activeSlide !== slide.id
-										}"
+												'bg-primary': activeSlide === slide.id,
+												'bg-slate-300': activeSlide !== slide.id
+											}"
 											x-on:click="activeSlide = slide.id"
 										></button>
 									</template>
