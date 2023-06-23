@@ -6,7 +6,7 @@ on:
 
 jobs:
   create-style:
-    name: Crate css File
+    name: 🏗 Create css File
     runs-on: ubuntu-latest
     if: ${{ contains(github.event.head_commit.message, '#publish') }}
     steps:
@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: "18.x"
       - run: npm install
-      - run: npm run dev
+      - run: npm run build
       - run: ls -la
       - run: ls -la web/assets/css
       - name: Upload style.css
