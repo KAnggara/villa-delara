@@ -20,6 +20,8 @@ jobs:
           password: ${{ secrets.VD_PASS }}
           server-dir: ${{ secrets.VD_DIR }}
           exclude: |
+            **/.git*
+            **/.git*/**
             **/.vscode*
             **/.vscode*/**
             **/.github*
