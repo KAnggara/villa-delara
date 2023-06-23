@@ -19,19 +19,3 @@ jobs:
           username: ${{ secrets.VD_USER }}
           password: ${{ secrets.VD_PASS }}
           server-dir: ${{ secrets.VD_DIR }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.vscode*
-            **/.vscode*/**
-            **/.github*
-            **/.github*/**
-            **/node_modules/**
-            .gitignore
-            README.md
-            package.json
-            package-lock.json
-            tailwind.config.js
-            prettier.config.js
-            postcss.config.js
-            pnpm-lock.yaml
