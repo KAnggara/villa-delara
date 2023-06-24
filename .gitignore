@@ -1,4 +1,6 @@
 web/assets/css/style.css
+web/assets/*.json
+
 # Logs
 logs
 *.log
