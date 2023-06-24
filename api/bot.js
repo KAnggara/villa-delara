@@ -26,6 +26,7 @@ const bot = {
 		const url = "https://www.airbnb.co.id/rooms/791880286688928875";
 		await bot.page.goto(url, { waitUntil: "networkidle2" });
 		await bot.getMonth();
+		bot.browser.close();
 	},
 
 	getMonth: async () => {
@@ -71,7 +72,7 @@ const bot = {
 			}
 		}
 
-		if (date.length > 0) {
+		if (mount.length > 0) {
 			var jsonData = JSON.stringify(mount);
 			fs.writeFile("../web/assets/mount.json", jsonData, function (err) {
 				if (err) {
