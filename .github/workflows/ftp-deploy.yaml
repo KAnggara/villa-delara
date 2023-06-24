@@ -18,9 +18,11 @@ jobs:
           node-version: "18.x"
       - run: npm install
       - run: npm run build
-      - run: cd api
-      - run: npm install
-      - run: node index.js
+      - run: |
+          cd api
+          ls -la
+          npm install
+          node index.js
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
