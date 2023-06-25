@@ -31,7 +31,7 @@ const bot = {
 
 	getMonth: async () => {
 		let date = [];
-		let mount = [];
+		let month = [];
 
 		const monthTarget = await bot.page.$("div._1foj6yps > div");
 		for (let i = 2; i <= 3; i++) {
@@ -65,16 +65,16 @@ const bot = {
 						}
 					}
 				}
-				mount.push({ month: monthData });
+				month.push({ month: monthData });
 				// get date
 			} catch (e) {
 				console.log(e);
 			}
 		}
 
-		if (mount.length > 0) {
-			var jsonData = JSON.stringify(mount);
-			fs.writeFile("../web/assets/mount.json", jsonData, function (err) {
+		if (month.length > 0) {
+			var jsonData = JSON.stringify(month);
+			fs.writeFile("../web/assets/month.json", jsonData, function (err) {
 				if (err) {
 					console.log(err);
 				}
