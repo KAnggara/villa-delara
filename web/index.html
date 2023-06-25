@@ -76,78 +76,62 @@
 		<!-- Header End -->
 
 		<!-- Hero Section Start -->
-		<section id="home" class="mx-3 pt-10 antialiased sm:pt-20">
-			<div class="container rounded-t-xl bg-secondary py-6 md:mx-auto">
-				<div class="relative">
-					<div class="px-10">
-						<div class="relative">
-							<div
-								class="relative flex items-start justify-center"
-								x-data="{
+		<section id="home" class="pt-10 antialiased sm:pt-0">
+			<div class="relative">
+				<div class="px-1">
+					<div class="relative">
+						<div
+							class="relative flex items-start justify-center"
+							x-data="{
 								activeSlide: 1,
 								slides: [
-								{ id: 1, image: './assets/images/carousel/vd1.jpeg' },
-								{ id: 2, image: './assets/images/carousel/vd2.jpeg' },
-								{ id: 3, image: './assets/images/carousel/vd1.jpeg'},
-								{ id: 4, image: './assets/images/carousel/vd2.jpeg'},
-								{ id: 5, image: './assets/images/carousel/vd1.jpeg'},
-								{ id: 6, image: './assets/images/carousel/vd2.jpeg'},
+								{ id: 1, image: './assets/images/gallery/swp5.webp' },
+								{ id: 2, image: './assets/images/gallery/str7.webp' },
+								{ id: 3, image: './assets/images/gallery/str5.webp' },
+								{ id: 4, image: './assets/images/gallery/blc6.webp' },
+								{ id: 5, image: './assets/images/gallery/ktc1.webp' },
 								],
 								loop() {
 								setInterval(() => { this.activeSlide = this.activeSlide === this.slides.length ? 1 : this.activeSlide + 1 }, 2500)
 								}
 							}"
-								x-init="loop"
-							>
-								<template x-for="slide in slides" :key="slide.id">
-									<div x-show="activeSlide === slide.id">
-										<img alt="" :src="slide.image" class="rounded-xl" class="max-h-96" />
-									</div>
-								</template>
-								<!-- button arrow -->
-								<div class="absolute inset-0 hidden md:flex">
-									<div class="flex w-1/2 items-center justify-start">
-										<button class="ml-2 flex items-center justify-center rounded-full bg-slate-300 p-[1px] font-bold text-white shadow hover:bg-primary hover:text-black md:ml-4 md:h-12 md:w-12" x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1">
-											<span class="material-symbols-outlined"> arrow_back </span>
-										</button>
-									</div>
-									<div class="flex w-1/2 items-center justify-end">
-										<button class="mr-2 flex items-center justify-center rounded-full bg-slate-300 p-[1px] font-bold text-white shadow hover:bg-primary hover:text-black md:mr-4 md:h-12 md:w-12" x-on:click="activeSlide = activeSlide === slides.length  ? 1 : activeSlide + 1">
-											<span class="material-symbols-outlined"> arrow_forward </span>
-										</button>
-									</div>
+							x-init="loop"
+						>
+							<template x-for="slide in slides" :key="slide.id">
+								<div x-show="activeSlide === slide.id">
+									<img alt="image" :src="slide.image" class="max-h-screen w-screen rounded-sm" />
 								</div>
-								<!-- button indicator -->
-								<div class="absolute hidden w-full items-center justify-center px-4 md:flex">
-									<template x-for="slide in slides" :key="slide.id">
-										<button
-											class="mx-2 mb-0 mt-4 h-2 w-2 flex-1 overflow-hidden rounded-full transition-colors duration-200 ease-out hover:bg-primary hover:shadow-lg"
-											:class="{
-												'bg-primary': activeSlide === slide.id,
-												'bg-slate-300': activeSlide !== slide.id
-											}"
-											x-on:click="activeSlide = slide.id"
-										></button>
-									</template>
+							</template>
+							<!-- button arrow -->
+							<div class="absolute inset-0 hidden">
+								<div class="flex w-1/2 items-center justify-start">
+									<button class="ml-2 flex items-center justify-center rounded-full bg-slate-300 p-[1px] font-bold text-white shadow hover:bg-primary hover:text-black md:ml-4 md:h-12 md:w-12" x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1">
+										<span class="material-symbols-outlined"> arrow_back </span>
+									</button>
+								</div>
+								<div class="flex w-1/2 items-center justify-end">
+									<button class="mr-2 flex items-center justify-center rounded-full bg-slate-300 p-[1px] font-bold text-white shadow hover:bg-primary hover:text-black md:mr-4 md:h-12 md:w-12" x-on:click="activeSlide = activeSlide === slides.length  ? 1 : activeSlide + 1">
+										<span class="material-symbols-outlined"> arrow_forward </span>
+									</button>
 								</div>
 							</div>
-							<span class="absolute bottom-0 left-0 right-0">
-								<div class="grid max-w-xs text-white md:mx-0 md:w-1/2 md:max-w-none">
-									<ul class="text-md mb-4 ml-9 sm:ml-20 md:mb-6 md:text-5xl">
-										<li>Villa</li>
-										<li>Keluarga</li>
-										<li>di Puncak</li>
-										<li>Bogor</li>
-									</ul>
-									<div class="mb-6 ml-4 block text-left sm:mb-20 sm:ml-20 md:mt-2">
-										<a href="#book" class="border-black bg-white p-1 text-xs font-light text-black shadow-md hover:border-white hover:bg-primary hover:font-bold hover:text-white md:rounded-lg md:border-[1px] md:px-4 md:py-2 md:text-base">Book Now</a>
-									</div>
+						</div>
+						<span class="absolute bottom-0 left-0 right-0 md:mx-10">
+							<div class="grid max-w-xs text-white md:mx-0 md:w-1/2 md:max-w-none">
+								<ul class="text-md mb-4 ml-9 sm:ml-20 md:mb-6 md:text-5xl">
+									<li>Villa</li>
+									<li>Keluarga</li>
+									<li>di Puncak</li>
+									<li>Bogor</li>
+								</ul>
+								<div class="mb-6 ml-4 block text-left sm:mb-20 sm:ml-20 md:mt-2">
+									<a href="#book" class="border-black bg-white p-1 text-xs font-light text-black shadow-md hover:border-white hover:bg-primary hover:font-bold hover:text-white md:rounded-lg md:border-[1px] md:px-4 md:py-2 md:text-base">Book Now</a>
 								</div>
-							</span>
-						</div>
-						<div class="mt-6 text-left text-2xl md:mt-8">
-							<p class="max-w-sm font-sans text-xs sm:text-base md:mx-auto md:ml-auto md:w-1/2 md:max-w-none md:text-xl">Nikmati liburan mewah di Puncak dengan menyewa villa kami yang eksklusif. Dengan pemandangan indah dan fasilitas kolam renang pribadi, liburan Anda akan menjadi tak terlupakan. Hubungi kami sekarang untuk reservasi!</p>
-						</div>
+							</div>
+						</span>
+					</div>
+					<div class="mt-6 text-left text-2xl md:mt-8">
+						<p class="max-w-sm font-sans text-xs sm:text-base md:mx-auto md:ml-auto md:w-1/2 md:max-w-none md:text-xl">Nikmati liburan mewah di Puncak dengan menyewa villa kami yang eksklusif. Dengan pemandangan indah dan fasilitas kolam renang pribadi, liburan Anda akan menjadi tak terlupakan. Hubungi kami sekarang untuk reservasi!</p>
 					</div>
 				</div>
 			</div>
