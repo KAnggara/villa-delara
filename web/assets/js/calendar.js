@@ -17,9 +17,7 @@ readTextFile("./assets/month.json", function (text) {
 	const title2 = month[1].month;
 	window.addEventListener("load", function () {
 		document.getElementById("title1").innerHTML = title1;
-		if (screen.width > 768) {
-			document.getElementById("title2").innerHTML = title2;
-		}
+		document.getElementById("title2").innerHTML = title2;
 	});
 });
 
